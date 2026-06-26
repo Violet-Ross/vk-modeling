@@ -1,0 +1,90 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{graphicx} % Include figure files
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\hypersetup{bookmarks=true, unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH}, pdfcreator={}, pdfproducer={}, pdfkeywords={} {} {}, pdfnewwindow=true, colorlinks=true, linkcolor=red, citecolor=Green, filecolor=magenta, urlcolor=cyan,}
+\usepackage{authblk}
+
+\usepackage{parskip}
+
+
+\input{macros}
+
+\begin{document}
+%%%%%%%%%% Authors
+\author[1,2,3]{\dan{Daniel B. Larremore}\thanks{daniel.larremore@colorado.edu}}
+\affil[1]{Department of Computer Science, University of Colorado Boulder, Boulder, CO 80309 USA}
+\affil[2]{BioFrontiers Institute, University of Colorado Boulder, Boulder, CO 80303 USA}
+\affil[3]{Santa Fe Institute, Santa Fe, NM 87501 USA}
+%%%%%%%%%% Suppress Date
+\date{}
+%%%%%%%%%% Title
+\title{Title}
+\maketitle
+%%%%%%%%%% Abstract
+\begin{abstract}
+abstract
+\end{abstract}
+%%%%%%%%%% Content
+
+
+    %%%    
+    %%%   
+  %%%%%%%
+   %%%%%
+    %%%
+     %
+
+\section{Introduction}
+\label{sec-intro}
+
+This is \dan{dan} and this is \vlr{violet} in Sec.~\ref{sec-intro}.
+
+
+\section{Study Design and Optimized Assay Approaches}
+\include{study-design.tex}
+
+
+  \begin{figure}
+      \centering 
+      \includegraphics[width=1\textwidth]{../fig/bhm.pdf}
+      \caption{The Bayesian hierarchical model.} \label{fig:bhm}
+  \end{figure}
+
+  \begin{figure}
+      \centering 
+      \includegraphics[width=1\textwidth]{../fig/rmse_combined.png}
+      \caption{Parameter sweeps.} \label{fig:rmse_combined}
+  \end{figure}
+
+  \begin{figure}
+      \centering 
+      \includegraphics[width=1\textwidth]{../fig/pipeline.pdf}
+      \caption{The model fitting pipeline. In Phase (A), subjects provide saliva samples over several
+       days to create a matrix of samples with dimensions subjects by days. In Phase (B), sample 
+       pooling and interval sampling are used to identify the locations of infections in the 
+       matrix. This results in a series of partially sampled viral load trajectories. Using Hamiltonian 
+       Monte Carlo, the Bayesian hierarchical model specified in \ref{fig:bhm} is fit to the partially 
+       sampled trajectories. The fit model provides probability distributions over possible values of 
+       the epidemiological parameters of the pathogen.} \label{fig:pipeline}
+       
+  \end{figure}
+
+     %
+    %%%
+   %%%%%
+  %%%%%%%
+    %%%
+    %%%
+
+\bibliographystyle{apsrev4-1}
+\bibliography{bibliography}
+\end{document}

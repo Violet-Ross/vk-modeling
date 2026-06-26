@@ -1,0 +1,34 @@
+We develop methods for fitting a viral kinetics model given a set of \vlr{(is there a word more general than "saliva" that I can use here?)} samples collected from $\numpeople$ individuals over $\numdays$ days.
+These samples can be arranged into an $\numpeople$ by $\numdays$ matrix $\samplematrix$, where an entry $\samplematrixentry_{i,j}$ is the sample collected from participant $i$ on day $j$.
+We say that $\samplematrixentry_{i,j} > 0$ if individual $i$ had viral RNA concentration above the limit of detection (LOD) of our assay on day $j$.
+Otherwise, $\samplematrixentry_{i,j} = 0$. 
+Observing the value of an entry in the matrix amounts to assaying the corresponding sample.
+
+Data of this kind might emerge in a variety of ways.
+Samples originally collected for a study focusing on one pathogen can be arranged into this format and used to fit a model of another pathogen.
+\vlr{(Need another example of where this data might come from.)}
+Of course, researchers might collect samples from a population with the express purpose of employing the assaying approaches proposed here.
+
+The ultimate goal of this work is to develop efficient algorithms to obtaining a fit model of the viral kinetics of a pathogen, starting from the matrix $\samplematrix$ whose values we have not yet observed. 
+There are two main types of algorithms we propose towards this end: the first locates infections within the sample matrix and the second fits a viral kinetics model to those infections.
+
+Unless researchers specifically target individuals who they know are likely to become infected within a fixed period of time (an approach which incurs its own high expenses), $\samplematrix$ will be a sparse matrix.
+If we were to assay every sample in $\samplematrix$, most of the results will be negative, offering little information to our model.
+That is, only a small proportion of the assays perfomed in the complete assaying case are informative.
+This suggests that we can locate the infections within $\samplematrix$ using far fewer than the $\numpeople * \numdays$ assays required by the complete testing approach.
+But how many tests are actually needed, and how should we distribute them among the samples?
+
+\subsection{Sample Pooling and Interval Sampling}
+The problem of infection location amounts to identifying continuous sequences of positive entries within the rows of $\samplematrix$.
+We need not record the entire infection from start to finish, but rather identify at least one of the positive values within it.
+This can be achieved by the following algorithm.
+
+Suppose you are given the matrix $\samplematrix$ with unobserved entries.
+Assume that the duration of each infection $\li$ is drawn from some continuous positive distribution with practical lower bound $\lo$ such that $\prob(\li < \lo) < c$ for some small constant $c$.
+\vlr{(how are we doing this in sims since we're working in discrete time?)}
+
+The algorithm proceeds as follows. \vlr{(a diagram might be useful for this)}
+Within each row: pool the samples and apply a single assay to the pool \vlr{(gotta show that we'll stay above LO)}. 
+For each row $i$ on which the assay returns a negative result, set $\samplematrixentry_{i,j} = 0$ for all $i$.
+This row does not contain an infection and can now be removed from consideration.
+For each row on which the assay returned a positive result, individually assay entries at an interval of 
