@@ -1,0 +1,43 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Perelson et~al.(1996)Perelson, Neumann, Markowitz, Leonard, and Ho]{perelson1996hiv}
+Alan~S Perelson, Avidan~U Neumann, Martin Markowitz, John~M Leonard, and David~D Ho.
+\newblock Hiv-1 dynamics in vivo: virion clearance rate, infected cell life-span, and viral generation time.
+\newblock \emph{Science}, 271\penalty0 (5255):\penalty0 1582--1586, 1996.
+
+\bibitem[Rong et~al.(2012)Rong, Ribeiro, and Perelson]{rong2012modeling}
+Libin Rong, Ruy~M Ribeiro, and Alan~S Perelson.
+\newblock Modeling quasispecies and drug resistance in hepatitis c patients treated with a protease inhibitor.
+\newblock \emph{Bulletin of mathematical biology}, 74\penalty0 (8):\penalty0 1789--1817, 2012.
+
+\bibitem[Heldt et~al.(2013)Heldt, Frensing, Pflugmacher, Gr{\"o}pler, Peschel, and Reichl]{heldt2013multiscale}
+Frank~S Heldt, Timo Frensing, Antje Pflugmacher, Robin Gr{\"o}pler, Britta Peschel, and Udo Reichl.
+\newblock Multiscale modeling of influenza a virus infection supports the development of direct-acting antivirals.
+\newblock \emph{PLoS computational biology}, 9\penalty0 (11):\penalty0 e1003372, 2013.
+
+\bibitem[Kissler et~al.(2021)Kissler, Fauver, Mack, Olesen, Tai, Shiue, Kalinich, Jednak, Ott, Vogels, et~al.]{kissler2021viral}
+Stephen~M Kissler, Joseph~R Fauver, Christina Mack, Scott~W Olesen, Caroline Tai, Kristin~Y Shiue, Chaney~C Kalinich, Sarah Jednak, Isabel~M Ott, Chantal~BF Vogels, et~al.
+\newblock Viral dynamics of acute sars-cov-2 infection and applications to diagnostic and public health strategies.
+\newblock \emph{PLoS biology}, 19\penalty0 (7):\penalty0 e3001333, 2021.
+
+\bibitem[Russell et~al.(2024)Russell, Townsley, Abbott, Hellewell, Carr, Chapman, Pung, Quilty, Hodgson, Fowler, et~al.]{russell2024combined}
+Timothy~W Russell, Hermaleigh Townsley, Sam Abbott, Joel Hellewell, Edward~J Carr, Lloyd~AC Chapman, Rachael Pung, Billy~J Quilty, David Hodgson, Ashley~S Fowler, et~al.
+\newblock Combined analyses of within-host sars-cov-2 viral kinetics and information on past exposures to the virus in a human cohort identifies intrinsic differences of omicron and delta variants.
+\newblock \emph{PLoS Biology}, 22\penalty0 (1):\penalty0 e3002463, 2024.
+
+\bibitem[Ke et~al.(2022)Ke, Martinez, Smith, Gibson, Achenbach, McFall, Qi, Jacob, Dembele, Bundy, et~al.]{ke2022longitudinal}
+Ruian Ke, Pamela~P Martinez, Rebecca~L Smith, Laura~L Gibson, Chad~J Achenbach, Sally McFall, Chao Qi, Joshua Jacob, Etienne Dembele, Camille Bundy, et~al.
+\newblock Longitudinal analysis of sars-cov-2 vaccine breakthrough infections reveals limited infectious virus shedding and restricted tissue distribution.
+\newblock In \emph{Open Forum Infectious Diseases}, volume~9, page ofac192. Oxford University Press, 2022.
+
+\bibitem[Kissler et~al.(2023)Kissler, Hay, Fauver, Mack, Tai, Anderson, Ho, Grubaugh, and Grad]{kissler2023viral}
+Stephen~M Kissler, James~A Hay, Joseph~R Fauver, Christina Mack, Caroline~G Tai, Deverick~J Anderson, David~D Ho, Nathan~D Grubaugh, and Yonatan~H Grad.
+\newblock Viral kinetics of sequential sars-cov-2 infections.
+\newblock \emph{Nature Communications}, 14\penalty0 (1):\penalty0 6206, 2023.
+
+\end{thebibliography}

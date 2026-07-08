@@ -9,18 +9,20 @@
 \usepackage{graphicx} % Include figure files
 \usepackage{times}
 \usepackage{amsthm}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage{hyperref}
 \hypersetup{bookmarks=true, unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH}, pdfcreator={}, pdfproducer={}, pdfkeywords={} {} {}, pdfnewwindow=true, colorlinks=true, linkcolor=red, citecolor=Green, filecolor=magenta, urlcolor=cyan,}
 \usepackage{authblk}
 \newtheorem{proposition}{Proposition}
-
+ 
 \usepackage{parskip}
-
-
+ 
+ 
 \input{macros}
-
+ 
 \begin{document}
 %%%%%%%%%% Authors
+\author[1]{\vlr{Violet Ross}}
 \author[1,2,3]{\dan{Daniel B. Larremore}\thanks{daniel.larremore@colorado.edu}}
 \affil[1]{Department of Computer Science, University of Colorado Boulder, Boulder, CO 80309 USA}
 \affil[2]{BioFrontiers Institute, University of Colorado Boulder, Boulder, CO 80303 USA}
@@ -46,9 +48,23 @@ abstract
 
 \section{Introduction}
 \label{sec-intro}
+Viral kinetics refers to the changes in viral levels within an infected individual over time.
+Viral kinetics (VK) models are within-host mathematical models that describe these dynamics.
+VK modeling provides investigators with curves of viral load over the course of an infection as well as estimates of key epidemiological parameters.
 
-This is \dan{dan} and this is \vlr{violet} in Sec.~\ref{sec-intro}.
 
+The original VK models were developed for the study of HIV in the 1990s \cite{perelson1996hiv}.
+Since then, VK models have proved useful for a variety of tasks.
+VK modeling can be used to address clinical questions, concerning topics like drug resistance \cite{rong2012modeling} and antiviral therapies \cite{heldt2013multiscale}, as well as epidemiological questions, such as understanding trasmissibility over time [CITE] and determining optimal surveillance strategies \cite{kissler2021viral}.  
+Modeling viral kinetics also allows us to understand how infections with the same virus might vary depending factors such as the variant \cite{russell2024combined}, the vaccination status of the host \cite{ke2022longitudinal}, whether the host has been infected before \cite{kissler2023viral}, and demographic characteristics of the host, such as age \cite{russell2024combined}.
+
+There are two main categories of VK models: mechanistic and phenomonological.
+
+The fundamental challenge of building VK models is the amount and type of data needed, and the cost associated with collecting it.
+If too few samples are collected, the model will struggle to accurately estimate the dynamics of viral concentration, producing poor estimates of epidemiological parameters.
+Collecting high numbers of samples presents its own challenges, increasing discomfort for subjects and incurring high costs for the investigator. 
+Data for fitting viral kinetics models may be collected via a challenge study or from naturally occurring infections in some population.
+Popular approaches for collecting naturally-occurring infection data, such as serial sampling after an initial positive and aggregating single samples from individuals, produce models with fundamental flaws \cite{russell2024combined}.
 
 \section{Study Design and Optimized Assay Approaches}
 \include{study-design.tex}
@@ -88,7 +104,7 @@ This is \dan{dan} and this is \vlr{violet} in Sec.~\ref{sec-intro}.
 
 \section{Appendix}
 
-\subsection{Accuracy and Costof Infection Discovery}\label{sec:infx-disc}
+\subsection{Accuracy and Cost of Infection Discovery}\label{sec:infx-disc}
 For an arbitrary infection $i$ contained in sample matrix $\samplematrix$, the probability the infection discovery algorithm misses $i$ can be expressed as follows.
 \begin{equation*}
     \begin{split}
@@ -107,6 +123,6 @@ Suppose each assay costs $\assaycost$.
 Then the cost of the pooling step of the infection discovery algorithm is $\assaycost \numpeople$.
 The cost of the interval sampling step is 
 
-\bibliographystyle{apsrev4-1}
-\bibliography{bibliography}
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
 \end{document}
