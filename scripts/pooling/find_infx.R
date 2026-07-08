@@ -16,7 +16,8 @@ for(row_ind in 1:nrow(matrix)){
     index_values <- append(index_values, rep(positive_rows, length(traj)))
     time_values <- append(time_values, (seq(1, length(traj)) - 1) * l_0)
     person_values <- append(person_values, rep(row_ind, length(traj)))
-    date_values <- append(date_values, traj_indices * l_0)
+    #date_values <- append(date_values, traj_indices * l_0)
+    date_values <- append(date_values, test_times[traj_indices]) # claude
     
     positive_rows <- positive_rows + 1
   }

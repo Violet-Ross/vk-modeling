@@ -18,17 +18,33 @@ That is, only a small proportion of the assays perfomed in the complete assaying
 This suggests that we can locate the infections within $\samplematrix$ using far fewer than the $\numpeople * \numdays$ assays required by the complete testing approach.
 But how many tests are actually needed, and how should we distribute them among the samples?
 
-\subsection{Sample Pooling and Interval Sampling}
-The problem of infection location amounts to identifying continuous sequences of positive entries within the rows of $\samplematrix$.
+\subsection{Infection Discovery}
+The problem of infection discovery amounts to identifying continuous sequences of positive entries within the rows of $\samplematrix$.
 We need not record the entire infection from start to finish, but rather identify at least one of the positive values within it.
 This can be achieved by the following algorithm.
 
-Suppose you are given the matrix $\samplematrix$ with unobserved entries.
-Assume that the duration of each infection $\li$ is drawn from some continuous positive distribution with practical lower bound $\lo$ such that $\prob(\li < \lo) < c$ for some small constant $c$.
+Suppose you are given the matrix $\samplematrix$ with unobserved entries and cumulative incidence $\incidence$.
+Assume that the duration of each infection $\li$ is drawn from some continuous positive distribution with practical lower bound $\lo$ such that $\prob(\li < \lo) < \alpha$ for some small constant $\alpha$.
 \vlr{(how are we doing this in sims since we're working in discrete time?)}
 
 The algorithm proceeds as follows. \vlr{(a diagram might be useful for this)}
 Within each row: pool the samples and apply a single assay to the pool \vlr{(gotta show that we'll stay above LO)}. 
-For each row $i$ on which the assay returns a negative result, set $\samplematrixentry_{i,j} = 0$ for all $i$.
+For each row $i$ on which the assay returns a negative result, set $\samplematrixentry_{i,j} = 0$ for all $j$.
 This row does not contain an infection and can now be removed from consideration.
-For each row on which the assay returned a positive result, individually assay entries at an interval of 
+For each row $i$ on which the assay returned a positive result, individually assay entries at an interval of $\lo$.
+That is, assay samples $\samplematrixentry_{i,0}, \samplematrixentry_{i,\lo}, \samplematrixentry_{i,2\lo}, \samplematrixentry_{i,3\lo}, \dots$. 
+
+Both the accuracy of this approach and the cost reduction it offers can be expressed in closed form.
+We quantify the accuracy of the infection discovery algorithm by the probability that an arbitrary trajectory is not missed.
+An infection is missed if none of the samples taking during its duration are assayed by the algorithm.
+The probability that an arbitrary infection $i$ is missed by the infection discovery algorithm is described by the inequality
+\begin{equation}\label{eqn:miss}
+    \prob(\text{miss } i) < \alpha - \frac{\alpha}{\lo} \expec \left[ \li | \li < \lo  \right]
+\end{equation}
+The cost $C$ of running the infection discovery algorithm over matrix $\samplematrix$ is 
+\begin{equation}\label{eqn:cost}
+    C = \numpeople \numdays (\frac{1}{\numdays} + \frac{c}{\lo}).
+\end{equation}
+This reduces the cost of the brute force approach by a factor of $(\frac{1}{\numdays} + \frac{c}{\lo})$.
+Infection discovery gets cheaper as the number of individuals sampled increases and the ratio of the cumulative incidence to the sampling interval decreases.
+Derivations for Equations \ref{eqn:miss} and \ref{eqn:cost} can be found in Section \ref{sec:infx-disc}.

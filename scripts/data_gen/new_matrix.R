@@ -5,6 +5,8 @@ prev <- 0.3
 min_x <- 0
 max_x <- 50
 
+size <- 10000
+
 # initialize matrix of 0s
 infection_matrix <- matrix(0, nrow = num_people, ncol = num_days)
 
@@ -21,7 +23,7 @@ sigma_beta1 <- abs(rnorm(1, 0, sd = 0.1))
 sigma_beta2 <- abs(rnorm(1, 0, sd = 0.1))
 sigma_psi <- abs(rnorm(1, 0, sd = 0.1))
 
-sigma_epsilon <- abs(rnorm(1, 0, sd = 5)) # observation noise, drawn from prior
+sigma_epsilon <- abs(rnorm(1, 0, sd = 0.5)) # observation noise, drawn from prior
 
 pop_params <- data.frame(mu_beta1, mu_beta2, mu_psi, 
                          sigma_beta1, sigma_beta2, sigma_psi, sigma_epsilon)
@@ -53,3 +55,12 @@ for(row_ind in 1:nrow(infection_matrix)){
 
 
 matrix <- data.frame(infection_matrix)
+
+# determine l_0
+beta1 <- rnorm(size, mean = mu_beta1, sd = sigma_beta1)
+beta2 <- rnorm(size, mean = mu_beta2, sd = sigma_beta2)
+psi <- rnorm(size, mean = mu_psi, sd = sigma_psi)
+
+l_i <- psi * (1 - (beta1 / beta2))
+
+l_0 <- quantile(l_i, 0.05, names = F)

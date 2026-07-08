@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \hypersetup{bookmarks=true, unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH}, pdfcreator={}, pdfproducer={}, pdfkeywords={} {} {}, pdfnewwindow=true, colorlinks=true, linkcolor=red, citecolor=Green, filecolor=magenta, urlcolor=cyan,}
 \usepackage{authblk}
+\newtheorem{proposition}{Proposition}
 
 \usepackage{parskip}
 
@@ -84,6 +85,27 @@ This is \dan{dan} and this is \vlr{violet} in Sec.~\ref{sec-intro}.
   %%%%%%%
     %%%
     %%%
+
+\section{Appendix}
+
+\subsection{Accuracy and Costof Infection Discovery}\label{sec:infx-disc}
+For an arbitrary infection $i$ contained in sample matrix $\samplematrix$, the probability the infection discovery algorithm misses $i$ can be expressed as follows.
+\begin{equation*}
+    \begin{split}
+            \prob(\text{miss }i) &= \prob(\li \geq \lo) \prob(\text{miss }i | \li \geq \lo) + \prob(\li < \lo) \prob(\text{miss }i | \li < \lo) \\
+            &= \prob(\li < \lo) \prob(\text{miss }i | \li < \lo) \\
+            &= \int_{0}^{\lo} \prob(\li) \prob(\text{miss }i | \li) d\li \\
+            &= \int_{0}^{\lo} \prob(\li) \left(1 - \frac{\li}{\lo} \right) d\li  \\
+            &= \int_{0}^{\lo} \prob(\li) - \int_{0}^{\lo} \prob(\li)\frac{\li}{\lo} d\li  \\
+            &= \prob(\li < \lo) - \frac{\prob(\li < \lo)}{\lo} \expec \left[ \li | \li < \lo \right] \\
+            &< \alpha - \frac{\alpha}{\lo} \expec \left[ \li | \li < \lo \right]
+    \end{split}
+\end{equation*}
+
+We now consider the cost of performing infection discovery on $\samplematrix$.
+Suppose each assay costs $\assaycost$.
+Then the cost of the pooling step of the infection discovery algorithm is $\assaycost \numpeople$.
+The cost of the interval sampling step is 
 
 \bibliographystyle{apsrev4-1}
 \bibliography{bibliography}

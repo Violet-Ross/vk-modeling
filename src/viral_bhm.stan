@@ -54,7 +54,7 @@ model {
   sigma_beta2 ~ normal(0, 1);
   sigma_psi   ~ normal(0, 1);
 
-  sigma_eps ~ normal(0, 5);
+  sigma_eps ~ normal(0, 0.5);
 
   // Priors
   alpha_raw ~ normal(0, 1);
