@@ -5,45 +5,45 @@ A level-1 auxiliary file: study-design.aux
 The style file: unsrtnat.bst
 Database file #1: refs.bib
 Warning--can't use both volume and number fields in ke2022longitudinal
-You've used 7 entries,
+You've used 8 entries,
             2481 wiz_defined-function locations,
-            610 strings with 6848 characters,
-and the built_in function-call counts, 3933 in all, are:
-= -- 256
-> -- 357
-< -- 2
-+ -- 126
-- -- 112
-* -- 392
-:= -- 680
-add.period$ -- 22
-call.type$ -- 7
-change.case$ -- 14
-chr.to.int$ -- 7
-cite$ -- 8
-duplicate$ -- 151
-empty$ -- 279
-format.name$ -- 119
-if$ -- 788
+            617 strings with 7046 characters,
+and the built_in function-call counts, 4320 in all, are:
+= -- 293
+> -- 372
+< -- 3
++ -- 132
+- -- 116
+* -- 420
+:= -- 739
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 16
+chr.to.int$ -- 8
+cite$ -- 9
+duplicate$ -- 170
+empty$ -- 316
+format.name$ -- 126
+if$ -- 871
 int.to.chr$ -- 1
-int.to.str$ -- 8
-missing$ -- 7
-newline$ -- 43
-num.names$ -- 21
-pop$ -- 53
+int.to.str$ -- 9
+missing$ -- 8
+newline$ -- 48
+num.names$ -- 24
+pop$ -- 60
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 8
 quote$ -- 0
-skip$ -- 91
+skip$ -- 103
 stack$ -- 0
-substring$ -- 174
-swap$ -- 32
+substring$ -- 201
+swap$ -- 34
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 49
+type$ -- 56
 warning$ -- 1
-while$ -- 23
+while$ -- 27
 width$ -- 0
-write$ -- 100
+write$ -- 113
 (There was 1 warning)

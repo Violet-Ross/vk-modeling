@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  8 JUL 2026 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  8 JUL 2026 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -444,20 +444,20 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
  (./study-design.tex [2
 
 ]) [3]
-<../fig/bhm.pdf, id=68, 722.7pt x 406.51875pt>
+<../fig/bhm.pdf, id=70, 722.7pt x 406.51875pt>
 File: ../fig/bhm.pdf Graphic file (type pdf)
 <use ../fig/bhm.pdf>
-Package pdftex.def Info: ../fig/bhm.pdf  used on input line 75.
+Package pdftex.def Info: ../fig/bhm.pdf  used on input line 77.
 (pdftex.def)             Requested size: 469.75502pt x 264.24025pt.
-<../fig/rmse_combined.png, id=69, 1156.32pt x 578.16pt>
+<../fig/rmse_combined.png, id=71, 1156.32pt x 578.16pt>
 File: ../fig/rmse_combined.png Graphic file (type png)
 <use ../fig/rmse_combined.png>
-Package pdftex.def Info: ../fig/rmse_combined.png  used on input line 81.
+Package pdftex.def Info: ../fig/rmse_combined.png  used on input line 83.
 (pdftex.def)             Requested size: 469.75502pt x 234.87692pt.
-<../fig/pipeline.pdf, id=70, 719.82101pt x 346.2575pt>
+<../fig/pipeline.pdf, id=72, 719.82101pt x 346.2575pt>
 File: ../fig/pipeline.pdf Graphic file (type pdf)
 <use ../fig/pipeline.pdf>
-Package pdftex.def Info: ../fig/pipeline.pdf  used on input line 87.
+Package pdftex.def Info: ../fig/pipeline.pdf  used on input line 89.
 (pdftex.def)             Requested size: 469.75502pt x 225.96817pt.
  (./texplate.bbl [4
 
@@ -471,18 +471,18 @@ Package rerunfilecheck Info: File `texplate.out' has not changed.
 (rerunfilecheck)             Checksum: 95811A54B0AF772BC95D12659DBCD117;325.
  ) 
 Here is how much of TeX's memory you used:
- 11996 strings out of 467525
- 181813 string characters out of 5418982
- 621230 words of memory out of 5000000
- 40682 multiletter control sequences out of 15000+600000
+ 12000 strings out of 467525
+ 181902 string characters out of 5418982
+ 623266 words of memory out of 5000000
+ 40685 multiletter control sequences out of 15000+600000
  655825 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,84p,836b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on texplate.pdf (6 pages, 637052 bytes).
+Output written on texplate.pdf (6 pages, 638840 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
