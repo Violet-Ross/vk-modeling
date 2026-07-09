@@ -46,9 +46,9 @@ abstract
     %%%
      %
 
-\section{Introduction}
+\section{Background}
 \label{sec-intro}
-Viral kinetics refers to the changes in viral levels within an infected individual over time.
+Viral kinetics refers to changes in the concentration of virus within an infected individual over time.
 Viral kinetics (VK) models are within-host mathematical models that describe these dynamics.
 VK modeling provides investigators with curves of viral load over the course of an infection as well as estimates of key epidemiological parameters.
 
@@ -58,14 +58,30 @@ Since then, VK models have proved useful for a variety of tasks.
 VK modeling can be used to address clinical questions, concerning topics like drug resistance \cite{rong2012modeling} and antiviral therapies \cite{heldt2013multiscale}, as well as epidemiological questions, such as understanding trasmissibility over time [CITE] and determining optimal surveillance strategies \cite{kissler2021viral}.  
 Modeling viral kinetics also allows us to understand how infections with the same virus might vary depending factors such as the variant \cite{russell2024combined}, the vaccination status of the host \cite{ke2022longitudinal}, whether the host has been infected before \cite{kissler2023viral}, and demographic characteristics of the host, such as age \cite{russell2024combined}.
 
-There are two main categories of VK models: mechanistic and phenomonological.
-
 The fundamental challenge of building VK models is the amount and type of data needed, and the cost associated with collecting it.
 If too few samples are collected, the model will struggle to accurately estimate the dynamics of viral concentration, producing poor estimates of epidemiological parameters.
 Collecting high numbers of samples presents its own challenges, increasing discomfort for subjects and incurring high costs for the investigator \cite{canini2011viral}. 
 Data for fitting VK models may be collected via a challenge study or from naturally occurring infections in some population.
 Popular approaches for collecting naturally-occurring infection data, such as serial sampling after an initial positive and aggregating single samples from individuals, produce models with fundamental flaws \cite{russell2024combined}.
-Gold-standard data for VK modeling emerged as a result of surveillance efforts during the SARS-CoV-2 pandemic, allowing for work which demonstrated the value of building VK models and of collecting the data necessary to fit them [CITE].
+Data from challenge studies is often more robust, but is costly to obtain.
+
+Gold-standard data for VK modeling emerged as a result of surveillance efforts during the SARS-CoV-2 pandemic, enabling an influx of VK modeling research which was crucial to improving understanding of the pathogen and making public health decisions [CITE, CITE, CITE].
+Existing data that has been collected from as many participants and with as much frequency as the COVID-era data is rare.
+We aim to build VK models that are as accurate as those built on the extensive COVID surveillance data — without requiring costly data collection.
+Optimal design for VK modeling has been explored in previous work — Canini and Carrat investigated the optimal number of participants, number of samples per participant, and temporal distribution of these samples for fitting a mechanistic model of influenza \cite{canini2011viral}.
+We propose an adaptive approach to fitting a generalized phenomonological model of viral kinetics that is optimal with respect to number of assays used.
+
+To optimally identify infections in a population, our approach employs sample pooling. 
+Sample pooling was first proposed by Robert Dorfman as a strategy for syphilis screening in the United States military during World War II. 
+The limit of detection for many assays is often far lower \vlr{[HOW MUCH]} than the amount of virus in a single positive sample. 
+This fact is the basis of sample pooling — combining several samples into a ``pool'' and then testing the pool using a single assay.
+If the pool is negative, all of its constituent samples are negative.
+If the pool is positive, at least one of the samples within it is positive.
+Several approaches optimized for varying criteria have been proposed for determining which of the samples in a positive pool are themselves positive \cite{furstenau2020sample}.
+Though Dorfman's design was never employed during the war, it has proved useful since then for providing diagnostic results using less reagant and with a faster turnaround time, as well as reducing the cost associated with obtaining population-level prevelance estimates \cite{grobe2021sample}.
+
+We determine an optimal testing algorithm for a phenomonological viral kinetics model.
+This two-phase piecewise linear model with parameters drawn from a Bayesian hierarchical model, has been used to model viral kinetics in work on SARS-CoV-2 \cite{kissler2023viral} and \vlr{other viruses} \cite{}.
 
 
 \section{Study Design and Optimized Assay Approaches}
