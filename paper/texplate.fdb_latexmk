@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex texplate"] 1783616190.43654 "texplate.aux" "texplate.bbl" "texplate" 1783616244.90295 0
+["bibtex texplate"] 1783621738.70946 "texplate.aux" "texplate.bbl" "texplate" 1783629718.5117 0
   "./refs.bib" 1783555861.02679 4254 929c3825946bfe4a8cb8a4baef877262 ""
   "/usr/local/texlive/2026/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "study-design.aux" 1783616244.42858 1432 50d058dc2ad0b67ec9b31e74c9b03184 "pdflatex"
-  "texplate.aux" 1783616244.72693 4180 d97dac165cd5fe4db01aa539e196b047 "pdflatex"
+  "study-design.aux" 1783629718.01698 1432 50d058dc2ad0b67ec9b31e74c9b03184 "pdflatex"
+  "texplate.aux" 1783629718.32094 4269 82ad709840b38c71016988c1a78b32d6 "pdflatex"
   (generated)
   "texplate.bbl"
   "texplate.blg"
   (rewritten before read)
-["pdflatex"] 1783616244.09519 "/Users/viro3403/Library/CloudStorage/OneDrive-UCB-O365/Desktop/Projects/vk-modeling/paper/texplate.tex" "texplate.pdf" "texplate" 1783616244.90321 0
+["pdflatex"] 1783629717.37842 "/Users/viro3403/Library/CloudStorage/OneDrive-UCB-O365/Desktop/Projects/vk-modeling/paper/texplate.tex" "texplate.pdf" "texplate" 1783629718.51196 0
   "../fig/bhm.pdf" 1783522558.00974 59820 9364a30566ef315667250427f94cfcc4 ""
-  "../fig/pipeline.pdf" 1783522558.0147 168231 70d9c279efd2eae6c051a15e54fd7c1b ""
+  "../fig/pipeline.pdf" 1783629669.4539 170619 8472165141bd093c4c5d20bfdc2ccf16 ""
   "../fig/rmse_combined.png" 1783522558.01587 162811 20c493450c963b3b39c4b7f92549f2be ""
   "../paper/plate_diagram.pdf" 1783616052.32797 48090 09f655b5424ed74febceb3c89b921a5c ""
-  "/Users/viro3403/Library/CloudStorage/OneDrive-UCB-O365/Desktop/Projects/vk-modeling/paper/texplate.tex" 1783609939.29402 8552 f8c169bf11a9c7fa74afbaed6ebe7cf4 ""
+  "/Users/viro3403/Library/CloudStorage/OneDrive-UCB-O365/Desktop/Projects/vk-modeling/paper/texplate.tex" 1783629716.93743 8590 867cd7d7e988fec2fd1730bf2aefcb1f ""
   "/Users/viro3403/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1783606883.73755 7808 62769a8cbba3a741e31765320076036d ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -147,12 +147,12 @@
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
   "macros.tex" 1783522558.01882 386 6f9735698f401c6fca3a3852a54598b5 ""
-  "study-design.aux" 1783616244.42858 1432 50d058dc2ad0b67ec9b31e74c9b03184 "pdflatex"
-  "study-design.tex" 1783616243.91482 5564 72e27c2acc8dcb419ae40e68fa804ca9 ""
-  "texplate.aux" 1783616244.72693 4180 d97dac165cd5fe4db01aa539e196b047 "pdflatex"
-  "texplate.bbl" 1783616190.50259 4324 69970eec02368f81c604c0117c89445a "bibtex texplate"
-  "texplate.out" 1783616244.72804 385 2d86b94f12d003b013d9bbf75a4f0971 "pdflatex"
-  "texplate.tex" 1783609939.29402 8552 f8c169bf11a9c7fa74afbaed6ebe7cf4 ""
+  "study-design.aux" 1783629718.01698 1432 50d058dc2ad0b67ec9b31e74c9b03184 "pdflatex"
+  "study-design.tex" 1783622660.30008 6626 137696f8012c76125797300a4af80217 ""
+  "texplate.aux" 1783629718.32094 4269 82ad709840b38c71016988c1a78b32d6 "pdflatex"
+  "texplate.bbl" 1783621738.79857 4324 69970eec02368f81c604c0117c89445a "bibtex texplate"
+  "texplate.out" 1783629718.32289 385 2d86b94f12d003b013d9bbf75a4f0971 "pdflatex"
+  "texplate.tex" 1783629716.93743 8590 867cd7d7e988fec2fd1730bf2aefcb1f ""
   (generated)
   "study-design.aux"
   "texplate.aux"

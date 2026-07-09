@@ -51,9 +51,21 @@ Derivations for Equations \ref{eqn:miss} and \ref{eqn:cost} can be found in Sect
 
 
 \subsection{Model Fitting}
-We use a Bayesian hierarchical model to describe the viral levels of subject $i$ at time $t$.
+We use a Bayesian hierarchical model (BHM) to describe the viral levels of subject $i$ at time $t$.
 The observed viral load of subject $i$ at time $t$ is drawn from a distribution centered at the $y$-value of a two-phase piecewise linear function at time $t$, described by the equation $\alpha^{(i)} + \beta_1^{(i)} + \beta_2^{(i)}\left(t - \psi^{(i)}\right) \mathbbm{1}_{\left\{t > \psi^{(i)}\right\}}$. 
 The parameters $\alpha^{(i)}$, $\beta_1^{(i)}$, $\beta_2^{(i)}$, and $\psi^{(i)}$ are themselves drawn from population-level distributions, as described in Figure \ref{fig:plate-diagram}.
+We fit the BHM to data using the Stan statistical software, which performs Hamiltonian Monte Carlo.
+
+We propose an adaptive assaying approach to fitting the BHM.
+To begin, we fit the BHM to only the data obtained from the infection discovery phase.
+This data consists of several infections, each of which is assayed at an interval $\lo$.
+Unless $\lo = 1$, the number of points per infection in the data is at this stage is lower than the number of samples collected within each infection.
+This initial fit provides posterior distributions over each of the parameters of the piecewise linear model.
+These distributions can also be used to compute distributions over epidemiological parameters like duration of infection and peak viral load.
+
+After the initial fit, the adaptive stage of the algorithm begins.
+Until the desired number of additional points is reached, choose a sample to assay based on the acquisition function and fit the BHM again.
+The acquisition function selects the sample whose $t$-value has the highest entropy under the previous fit.
 
 \begin{figure}
     \centering 
