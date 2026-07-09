@@ -1,0 +1,40 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{shapes.geometric, positioning, fit, calc}
+
+\begin{document}
+\begin{tikzpicture}[
+    node distance=1.4cm,
+    >=stealth,
+    latent/.style={circle, draw=black, thick, minimum size=1.1cm},
+    obs/.style={circle, draw=black, thick, fill=gray!35, minimum size=1.1cm},
+    param/.style={circle, draw=none, minimum size=0.4cm},
+    plate/.style={draw=black, thick, inner sep=8pt, rounded corners}
+]
+
+% --- Nodes ---
+\node[param] (alpha) {$\alpha$};
+\node[latent, right=of alpha] (theta) {$\theta_d$};
+\node[latent, right=of theta] (z) {$Z_{d,n}$};
+\node[obs, right=of z] (w) {$W_{d,n}$};
+\node[latent, right=2.4cm of w] (beta) {$\beta_k$};
+\node[param, right=of beta] (eta) {$\eta$};
+
+% --- Edges ---
+\draw[->] (alpha) -- (theta);
+\draw[->] (theta) -- (z);
+\draw[->] (z) -- (w);
+\draw[->] (beta) -- (w);
+\draw[->] (eta) -- (beta);
+
+% --- Plates ---
+% N plate (innermost, around z and w)
+\node[plate, fit=(z)(w), label={[anchor=south east]south east:$N$}] (plateN) {};
+
+% D plate (around theta and N plate)
+\node[plate, fit=(theta)(plateN), inner sep=14pt, label={[anchor=south east]south east:$D$}] (plateD) {};
+
+% K plate (around beta)
+\node[plate, fit=(beta), label={[anchor=south east]south east:$K$}] (plateK) {};
+
+\end{tikzpicture}
+\end{document}

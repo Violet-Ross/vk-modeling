@@ -48,3 +48,15 @@ The cost $C$ of running the infection discovery algorithm over matrix $\samplema
 This reduces the cost of the brute force approach by a factor of $(\frac{1}{\numdays} + \frac{c}{\lo})$.
 Infection discovery gets cheaper as the number of individuals sampled increases and the ratio of the cumulative incidence to the sampling interval decreases.
 Derivations for Equations \ref{eqn:miss} and \ref{eqn:cost} can be found in Section \ref{sec:infx-disc}.
+
+
+\subsection{Model Fitting}
+We use a Bayesian hierarchical model to describe the viral levels of subject $i$ at time $t$.
+The observed viral load of subject $i$ at time $t$ is drawn from a distribution centered at the $y$-value of a two-phase piecewise linear function at time $t$, described by the equation $\alpha^{(i)} + \beta_1^{(i)} + \beta_2^{(i)}\left(t - \psi^{(i)}\right) \mathbbm{1}_{\left\{t > \psi^{(i)}\right\}}$. 
+The parameters $\alpha^{(i)}$, $\beta_1^{(i)}$, $\beta_2^{(i)}$, and $\psi^{(i)}$ are themselves drawn from population-level distributions, as described in Figure \ref{fig:plate-diagram}.
+
+\begin{figure}
+    \centering 
+    \includegraphics[width=1\textwidth]{../paper/plate_diagram.pdf}
+    \caption{The Bayesian hierarchical model.} \label{fig:plate-diagram}
+\end{figure}
