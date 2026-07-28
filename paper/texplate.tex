@@ -23,7 +23,7 @@
  
 \begin{document}
 %%%%%%%%%% Authors
-\author[1]{\vlr{Violet Ross}}
+\author[1]{\vlr{Violet Ross}\thanks{violet.ross@colorado.edu}}
 \author[1,2,3]{\dan{Daniel B. Larremore}\thanks{daniel.larremore@colorado.edu}}
 \affil[1]{Department of Computer Science, University of Colorado Boulder, Boulder, CO 80309 USA}
 \affil[2]{BioFrontiers Institute, University of Colorado Boulder, Boulder, CO 80303 USA}
@@ -49,13 +49,10 @@ abstract
 
 \section{Background}
 \label{sec-intro}
-Viral kinetics refers to changes in the concentration of virus within an infected individual over time.
-Viral kinetics (VK) models are within-host mathematical models that describe these dynamics.
-VK modeling provides investigators with curves of viral load over the course of an infection as well as estimates of key epidemiological parameters.
 
 
-The original VK models were developed for the study of HIV in the 1990s \cite{perelson1996hiv}.
-Since then, VK models have proved useful for a variety of tasks.
+Viral kinetics, changes in the concentration of virus within an infected individual over time, were first modeled for the study of HIV in the 1990s \cite{perelson1996hiv}.
+Since then, viral kinetics (VK) models have proved useful for a variety of tasks.
 VK modeling can be used to address clinical questions, concerning topics like drug resistance \cite{rong2012modeling} and antiviral therapies \cite{heldt2013multiscale}, as well as epidemiological questions, such as understanding trasmissibility over time [CITE] and determining optimal surveillance strategies \cite{kissler2021viral}.  
 Modeling viral kinetics also allows us to understand how infections with the same virus might vary depending factors such as the variant \cite{russell2024combined}, the vaccination status of the host \cite{ke2022longitudinal}, whether the host has been infected before \cite{kissler2023viral}, and demographic characteristics of the host, such as age \cite{russell2024combined}.
 
@@ -114,12 +111,73 @@ This two-phase piecewise linear model with parameters drawn from a Bayesian hier
        
   \end{figure}
 
-     %
-    %%%
-   %%%%%
-  %%%%%%%
-    %%%
-    %%%
+\section{Results}
+\subsection{Model Fitting}
+
+\subsection{Interpreting Error}
+We have shown that it is possible to reduce the cost of data collection while maintaining the quality of parameter estimates produced by the resulting model.
+Still, if some error is permitted, we can reduce costs even further.
+It is therefore important for investigators seeking to optimize sample collection and assaying to develop an understanding of how error scales with respect to their question.
+To illustrate this, and to contextualize the error values presented in earlier sections of this paper, we provide the following two case studies.
+The first case study concerns a question of pathogen dynamics and statistical power, while the second case study concerns an effort to make optimal public health recommendations.
+
+First, suppose we would like to determine whether, for a given pathogen, the peak viral load is different depending on whether the host is vaccinated.
+This case study is inspired by the methodologies employed by Kissler et al. in \cite{kissler2023viral}.
+We will investigate this question by collecting longitudinal data from two populations: vaccinated and unvaccinated.
+This data will be compiled into a matrix onto which our infection discovery algorithm will be applied. 
+The trajectories discovered will then be sorted into two groups: V (vaccinated) and U (unvaccinated).
+We will separately fit the BHM to group V and group U, skipping any additional point acquisition.
+Then, to determine whether the peak viral loads are significantly different, we will take the difference of the two groups' relevant posterior draws entry-wise.
+If less than 5\% of the differences fall on a given side of 0, the peaks of the two groups are considered significantly different.
+
+To investiate the impact of reduced assay rate on an investigator's ability to answer the proposed question, we conducted the following experiment.
+We generated a synthetic matrix of infections, where the vaccination status of an individual is determined randomly.
+There are two separate models from which we generate the viral kinetics for vaccinated and unvaccinated individuals.
+The two models are identical except for the distributions from which peak viral load is drawn, which have different means.
+If we assay every sample in the matrix, we can correctly determine that the two groups have different underlying peak viral load distributions.
+
+\begin{figure}
+    \centering 
+    \includegraphics[width=1\textwidth]{../fig/question1.png}
+    \caption{Case Study 1.} \label{fig:question1}
+\end{figure}
+
+
+Figure \ref{fig:question1} demonstrates how our ability to identify this difference varies with the interval at which we assay participants.
+The complete details of this simulation are available in Appendix [BLAH].
+Notably, for values of $\lo$ less than or equal to 6, we are able to correctly detect the difference in the peak viral load distributions of the two groups.
+That is, with $1/6$ as many assays, the two groups can still be distinguished.
+We also plot the $\beta_1$ RMSE of the two fit models for varying $\lo$.
+For some higher $\lo$ values for which the viral load question is correctly answered, the RMSE of the actual parameter estimates are nontrivial.
+Therefore, if one wanted to both determine whether unvaccinated and vaccinated populations have significantly different peak viral loads \textit{and} provide accurate estimates of what those peak viral loads are, it would be advantageous to select a smaller sampling interval.
+We note, however, that this interval length need not be 1; for $\lo = 3$, the RMSEs of both the model fit to U and the model fit to V are similar to the RMSEs acheived with complete assaying.
+
+This simulation demonstrates that key pathogen kinetics questions can be answered even when the parameter estimates are noisy.
+This fact allows for a more extensive reduction in the cost of data collection.
+Still, for those questions that require more accurate estimates of epidemiological parameters, costs can be reduced (in this case, by a factor of 3), without sacrificing performance.
+
+In the second case study, we consider the task of selecting the optimal length of isolation for individuals infected with a given pathogen.
+To select isolation length, we optimize over testing effectiveness (TE) as defined by Middleton et al. in \cite{BLAH}.
+Details on the calculation of TE and the optimization process can be found in Appendix [BLAH].
+The value of TE is computed using, among other information, a model of the viral kinetics of the pathogen.
+
+\begin{figure}
+    \centering 
+    \includegraphics[width=1\textwidth]{../fig/question2.png}
+    \caption{Case Study 2.} \label{fig:question2}
+\end{figure}
+
+Figure \ref{fig:question2} shows the selected optimal length of isolation for varying amounts of error on the parameter which describes the mean of the clearance phase duration.
+This figure highlights the impact of the sign of the error on the isolation recommendation.
+Negative error leads to isolation recommendations that are shorter than the true optimal, while positive error generates longer recommended lengths.
+Additionally, a lesser magnitude of negative signed error is necessary to alter the recomended length than of positive error.
+This brings a key dimension of cost optimization to light — two sampling approaches that cause the same magnitude of error on the parameter estimates, but in opposite directions, may not have the same impact on the researcher's ability to answer their question.
+Just as the sign of the error on the clearance phase duration parameter causes varying impacts on the recommended isolation length, the direction in which we erroneously estimate optimal isolation length causes varying public health impacts.
+An isolation period that is too short will allow individuals who are still infectious to exit isolation too early, while a longer-than-necessary isolation period may result in an unecessary burden on the infected individual.
+Public health officials therefore may allow assaying optimization that biases estimates in one direction, but not the other.
+
+Of course, in the above case studies, we know the correct answer in advance, and can evaluate the performance of optimization efforts by determining whether the undersampled data produces the same result.
+When collecting data with the goal of answering a novel question, the researcher must determine the sensitivity of their analysis process to parameter estimate error in advance.
 
 \section{Appendix}
 
